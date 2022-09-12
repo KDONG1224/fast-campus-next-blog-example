@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import Layout from '../../components/Layout';
-import Date from '../../components/date';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css';
 import { useRouter } from 'next/router';
+import Date from '../../components/Date';
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 

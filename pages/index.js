@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import Layout, { siteTitle } from '../components/Layout';
+// import { useEffect, useState } from 'react';
 import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../components/Date';
+import Layout, { siteTitle } from '../components/Layout';
 
 /*
   getStaticProps
