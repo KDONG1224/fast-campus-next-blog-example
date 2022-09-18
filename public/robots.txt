@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fast-campus-next-blog-example.vercel.app
+
+# Sitemaps
+Sitemap: https://fast-campus-next-blog-example.vercel.app/sitemap.xml
