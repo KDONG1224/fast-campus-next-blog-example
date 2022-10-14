@@ -1,8 +1,22 @@
+import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { siteTitle } from 'pages/_document';
+import { useEffect } from 'react';
 import { useRef, useState } from 'react';
-import Layout from '../../components/Layout';
+
+// getServersideProps 방식
+// export async function getServerSideProps() {
+//   return {};
+// }
 
 export default function Write() {
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log('== router.query == : ', router.query);
+  }, [router.query]);
+
   const idRef = useRef(undefined);
   const titleRef = useRef(undefined);
   const contentRef = useRef(undefined);
@@ -39,10 +53,14 @@ export default function Write() {
   };
 
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>{`${siteTitle}`}</title>
+      </Head>
       <h1>Write a post</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="id" placeholder="id" required ref={idRef} />
+        <br />
         <br />
         <input
           type="text"
@@ -52,6 +70,7 @@ export default function Write() {
           ref={titleRef}
         />
         <br />
+        <br />
         <textarea
           type="text"
           name="content"
@@ -60,13 +79,22 @@ export default function Write() {
           ref={contentRef}
         />
         <br />
-        <input type="submit" value="Create" />
+        <br />
+        <input
+          className="rounded bg-pink-500 px-2"
+          type="submit"
+          value="Create"
+        />
       </form>
       {showLink && (
         <Link href={`/posts/${idRef.current.value}`}>
           <a>Create Post</a>
         </Link>
       )}
-    </Layout>
+    </>
   );
 }
+
+// Write.getInitialProps = async () => {
+//   return {};
+// };
