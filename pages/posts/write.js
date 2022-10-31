@@ -59,7 +59,18 @@ export default function Write() {
       </Head>
       <h1>Write a post</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="id" placeholder="id" required ref={idRef} />
+        <input
+          type="text"
+          name="id"
+          placeholder="id"
+          required
+          ref={idRef}
+          style={{
+            width: '100%',
+            border: '1px solid black',
+            padding: '12px'
+          }}
+        />
         <br />
         <br />
         <input
@@ -68,6 +79,11 @@ export default function Write() {
           placeholder="title"
           required
           ref={titleRef}
+          style={{
+            width: '100%',
+            border: '1px solid black',
+            padding: '12px'
+          }}
         />
         <br />
         <br />
@@ -77,6 +93,12 @@ export default function Write() {
           placeholder="content"
           required
           ref={contentRef}
+          style={{
+            width: '100%',
+            border: '1px solid black',
+            padding: '12px',
+            minHeight: 300
+          }}
         />
         <br />
         <br />
